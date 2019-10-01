@@ -43,11 +43,11 @@ public class BadgeResourceDeletionServlet extends SlingAllMethodsServlet {
     
 
     protected void activate(ComponentContext componentContext) throws Exception {
-        log.info("Activated: BadgeResourceDeletionServlet started");
+        log.info("Activated: BadgeResourceDeletionServlet activated");
     }
 
     protected void deactivate(ComponentContext context) {
-        log.info("Deactivated: BadgeResourceDeletionServlet stopped");
+        log.info("Deactivated: BadgeResourceDeletionServlet deactivated");
     }
 
     public void doPost(SlingHttpServletRequest req, SlingHttpServletResponse resp) {
@@ -61,7 +61,7 @@ public class BadgeResourceDeletionServlet extends SlingAllMethodsServlet {
             return;
         }
         try {
-			badgeResourceMigrationService.deleteOldBadges(req, resp);
+		//	badgeResourceMigrationService.deleteOldBadges(req, resp);
 		} catch (Exception e) {
 			log.error("Error in deleting old badges");
 		}

@@ -43,11 +43,11 @@ public class BadgeResourceValidationServlet extends SlingAllMethodsServlet {
     private final Logger log = LoggerFactory.getLogger(BadgeResourceValidationServlet.class);
 
     protected void activate(ComponentContext componentContext) throws Exception {
-        log.info("Activated: BadgeResourceValidationServlet started");
+        log.info("Activated: BadgeResourceValidationServlet activated");
     }
     
     protected void deactivate(ComponentContext context) {
-        log.info("Deactivated: BadgeResourceValidationServlet stopped");
+        log.info("Deactivated: BadgeResourceValidationServlet deactivated");
     }
 
     public void doPost(SlingHttpServletRequest req, SlingHttpServletResponse resp) {

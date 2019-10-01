@@ -41,12 +41,12 @@ public class BadgeResourceCreateServlet extends SlingAllMethodsServlet {
     private final Logger log = LoggerFactory.getLogger(BadgeResourceCreateServlet.class);
 
     protected void activate(ComponentContext componentContext) throws Exception {
-    	log.info("Activated: BadgeResourceCreateServlet started");
+    	log.info("Activated: BadgeResourceCreateServlet activated");
         
     }
 
     protected void deactivate(ComponentContext context) {
-        log.info("Deactivated: BadgeResourceCreateServlet stopped");
+        log.info("Deactivated: BadgeResourceCreateServlet deactivated");
     }
 
     public void doPost(SlingHttpServletRequest req, SlingHttpServletResponse resp) {
