@@ -117,11 +117,11 @@ pointing to old paths(/etc).
 
 Pre-requisite:
   - Make sure old badges images are present before running migration script.
-  - Users should not be assigned any new badges prior migration as it might conflict with old badges during migration.
+  - Users should not be assigned any new badges(having new paths) prior migration as it might lead to conflict with old badges during migration.
 
 Steps to migrate :
 
-1. Change the scoring path and badging paths in constant file (com.adobe.cq.social.badges.resource.migrator.internal.BadgingContants).
+1.  Add the site path(where the badging and scoring rules are configured) in below mentioned file  (com.adobe.cq.social.badges.resource.migrator.internal.BadgingContants).
 2. build cq-social-badges-migrator bundle.
 3. On any of publisher instance:
 	a. - Stop the instance.
@@ -136,13 +136,10 @@ Steps to migrate :
 5. Validate Badges
 
    - Make a HTTP POST call to http://<host>:<port>/libs/social/badges/badgeResourceValidationServlet with ADMIN credentials.
-   - Check the logs for any error in log file created in 3c.
+   - Check the logs for any error or "vaidation failed" in log file created in 3c.
 
 6. Delete Old Badge - (If validation is passed for all Users in step 5)
 
    - Make a HTTP POST call to http://<host>:<port>/libs/social/badges/badgeResourceDeleteServlet with ADMIN credentials.
    - Check the logs for any error in log file created in 3c.
-
-   Note-  This script currently handles single badgingrule and scoring rule configured on system. If string array of scoringrules and 
-          badgingrules is configured on system, this might not work.
 
