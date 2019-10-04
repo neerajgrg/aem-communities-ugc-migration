@@ -19,7 +19,7 @@ import com.adobe.cq.social.badges.resource.migrator.internal.BadgesMigrationUtil
 import com.adobe.cq.social.badges.resource.migrator.service.BadgeResourceMigrationService;
 
 
-@Component(metatype = true, immediate = true, label = "BadgeResourceCreateServlet", description = "This Servlets create the new badges")
+@Component(metatype = true, immediate = true, label = "BadgeResourceCreateServlet", description = "This servlet create the new badges")
 @Service(value = Servlet.class)
 @Properties(value = {
         @Property(name = "sling.servlet.extensions", value = "json", propertyPrivate = true),

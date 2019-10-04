@@ -213,10 +213,14 @@ public class BadgeResourceMigrationServiceImpl implements BadgeResourceMigration
 			ValueMap  badgeMap = badgeResource.getValueMap();
 			Resource badgingRuleResource =  resourceResolver.getResource(badgeMap.get("badgingRule", String.class));
 			String currentBadgeContentPath = badgeMap.get("badgeContentPath", String.class);
-			try {
-				badgingService.deleteBadge(resourceResolver, authId, badgingRuleResource, componentResource, currentBadgeContentPath, isAssigned);
-			} catch (Exception e) {
-				log.error("error in deleting badge auth:{}  badge:{} {}", authId, currentBadgeContentPath, e );
+			String newBadgeContentPath = BadgesMigrationUtils.getNewBadgeContentPath(currentBadgeContentPath, resourceResolver);
+			if(currentBadgeContentPath.startsWith("/etc") && badges.contains(new Badge(newBadgeContentPath))) {
+				try {
+					log.info("deleting badge auth:{}  badge:{} {}", authId, currentBadgeContentPath);
+					badgingService.deleteBadge(resourceResolver, authId, badgingRuleResource, componentResource, currentBadgeContentPath, isAssigned);
+				} catch (Exception e) {
+					log.error("error in deleting badge auth:{}  badge:{} {}", authId, currentBadgeContentPath, e );
+				}
 			}
 		}
 	}

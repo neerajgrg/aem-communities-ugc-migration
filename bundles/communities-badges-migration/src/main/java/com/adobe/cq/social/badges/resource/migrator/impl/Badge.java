@@ -10,6 +10,10 @@ public class Badge implements Comparable<Badge>{
 	Calendar earnedDate;
 	int score;
 	
+	public Badge(String path) {
+		super();
+		this.path = path;
+	}
 	
 	public Badge(String path, Calendar earnedDate, int score) {
 		super();
@@ -27,6 +31,8 @@ public class Badge implements Comparable<Badge>{
 		this.path = path;
 	}
 
+
+	
 
 	public Calendar getEarnedDate() {
 		return earnedDate;
